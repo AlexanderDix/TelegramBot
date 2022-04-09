@@ -1,6 +1,6 @@
 ﻿using TelegramBotUI.ViewModels.Base;
 
-namespace TelegramBotUI.Views
+namespace TelegramBotUI.ViewModels.WindowViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
