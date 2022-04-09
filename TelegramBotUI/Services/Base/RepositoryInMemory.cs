@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TelegramBotUI.Models.Interfaces;
 using TelegramBotUI.Services.Interfaces;
+using TelegramBotUI.Services.Repository;
 
 namespace TelegramBotUI.Services.Base
 {

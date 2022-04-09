@@ -9,6 +9,7 @@ namespace TelegramBotUI.Services
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<IUserDialog, UserDialogService>()
             .AddSingleton<ContactRepository>()
-            .AddSingleton<ContactMessageRepository>();
+            .AddSingleton<ContactMessageRepository>()
+            .AddSingleton<ContactMessageManager>();
     }
 }
