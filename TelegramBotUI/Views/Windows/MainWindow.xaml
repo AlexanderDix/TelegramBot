@@ -5,5 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" Width="800" Height="450">
-    <Grid />
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" MinWidth="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Grid.Column="0" Header="Контакты">
+            <ListBox />
+        </GroupBox>
+
+        <GroupBox Grid.Column="1" Header="Сообщения">
+            <ListBox />
+        </GroupBox>
+    </Grid>
 </Window>
