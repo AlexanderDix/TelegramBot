@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:TelegramBotUI.Models"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         Title="{Binding Title}" Width="800" Height="450">
     <Grid>
@@ -12,11 +13,40 @@
         </Grid.ColumnDefinitions>
 
         <GroupBox Grid.Column="0" Header="Контакты">
-            <ListBox />
+            <ListBox ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models:Contact">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Right" Text="{Binding Messages.Count, StringFormat=({0})}" />
+                            <TextBlock Text="{Binding FirstName}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </GroupBox>
 
         <GroupBox Grid.Column="1" Header="Сообщения">
-            <ListBox />
+            <ListBox ItemsSource="{Binding SelectedContact.Messages}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate DataType="models:ContactMessage">
+                        <StackPanel>
+                            <TextBlock Text="{Binding Text}" FontSize="14" />
+                            <TextBlock Text="{Binding Date, StringFormat=HH.mm}" FontSize="10"
+                                       HorizontalAlignment="Right" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </GroupBox>
     </Grid>
 </Window>

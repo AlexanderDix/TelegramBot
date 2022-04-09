@@ -1,10 +1,19 @@
-﻿using TelegramBotUI.ViewModels.Base;
+﻿using System.Collections;
+using System.Collections.Generic;
+using TelegramBotUI.Models;
+using TelegramBotUI.Services.Repository;
+using TelegramBotUI.ViewModels.Base;
 
 namespace TelegramBotUI.ViewModels.WindowViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+
         #region Fields
+
+        private readonly ContactMessageManager _messageManager;
+        public IEnumerable<Contact> Contacts => _messageManager.Contacts;
+        public IEnumerable<ContactMessage> Messages => _messageManager.Messages;
 
         #endregion
 
@@ -24,6 +33,20 @@ namespace TelegramBotUI.ViewModels.WindowViewModels
 
         #endregion
 
+        #region SelectedContact : Contact - Выбранный контакт
+
+        ///<summary>Выбранный контакт</summary>
+        private Contact _selectedContact;
+
+        ///<summary>Выбранный контакт</summary>
+        public Contact SelectedContact
+        {
+            get => _selectedContact;
+            set => Set(ref _selectedContact, value);
+        }
+
+        #endregion
+
         #endregion
 
         #region Commands
@@ -35,6 +58,11 @@ namespace TelegramBotUI.ViewModels.WindowViewModels
         #endregion
 
         #region Constructors
+
+        public MainWindowViewModel(ContactMessageManager messageManager)
+        {
+            _messageManager = messageManager;
+        }
 
         #endregion
     }
