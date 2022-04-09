@@ -5,6 +5,10 @@ namespace TelegramBotUI.Services.Repository
 {
     internal class ContactRepository : RepositoryInMemory<Contact>
     {
+        public ContactRepository() : base(TestData.Contacts)
+        {
+        }
+
         protected override void Update(Contact source, Contact destination)
         {
             destination.FirstName = source.FirstName;
