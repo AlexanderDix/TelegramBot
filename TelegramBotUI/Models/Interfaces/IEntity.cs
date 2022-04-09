@@ -1,6 +1,6 @@
 ﻿namespace TelegramBotUI.Models.Interfaces
 {
-    internal interface IEntity
+    public interface IEntity
     {
         int Id { get; set; }
     }
