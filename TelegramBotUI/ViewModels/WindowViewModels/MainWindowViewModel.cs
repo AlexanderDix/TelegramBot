@@ -1,10 +1,13 @@
 ﻿using TelegramBotUI.Models;
+using TelegramBotUI.Services;
 using TelegramBotUI.ViewModels.Base;
 
 namespace TelegramBotUI.ViewModels.WindowViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
+        private readonly BotManager _botManager;
+
         #region Fields
 
         #endregion
@@ -51,8 +54,9 @@ namespace TelegramBotUI.ViewModels.WindowViewModels
 
         #region Constructors
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(BotManager botManager)
         {
+            _botManager = botManager;
         }
 
         #endregion
