@@ -1,19 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TelegramBotUI.Models;
-using TelegramBotUI.Services.Repository;
+﻿using TelegramBotUI.Models;
 using TelegramBotUI.ViewModels.Base;
 
 namespace TelegramBotUI.ViewModels.WindowViewModels
 {
     internal class MainWindowViewModel : ViewModel
     {
-
         #region Fields
-
-        private readonly ContactMessageManager _messageManager;
-        public IEnumerable<Contact> Contacts => _messageManager.Contacts;
-        public IEnumerable<ContactMessage> Messages => _messageManager.Messages;
 
         #endregion
 
@@ -59,9 +51,8 @@ namespace TelegramBotUI.ViewModels.WindowViewModels
 
         #region Constructors
 
-        public MainWindowViewModel(ContactMessageManager messageManager)
+        public MainWindowViewModel()
         {
-            _messageManager = messageManager;
         }
 
         #endregion
