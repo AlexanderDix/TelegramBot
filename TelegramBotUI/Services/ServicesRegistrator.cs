@@ -7,6 +7,8 @@ namespace TelegramBotUI.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<IUserDialog, UserDialogService>()
+            .AddTransient<TokenService>()
+            .AddTransient<BotManager>()
         ;
     }
 }
